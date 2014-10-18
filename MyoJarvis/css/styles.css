@@ -276,8 +276,14 @@ Subscribe
 /* ==========================================================================
 CTA
 ========================================================================== */
-.ignite-cta { background-color: #242830; padding: 70px 0; }
-.ignite-btn { display: inline-block; padding: 25px 40px; color: #fff; border: solid 1px #fff; text-transform: uppercase; font-weight: bold; letter-spacing: 1px; }
+.ignite-cta { background-color: #47a347; padding: 70px 0; }
+.ignite-cta2 { background-color: #99eb99; padding: 70px 0; }
+.ignite-cta3 { background-color: gray; padding: 70px 0; }
+
+.ignite-btn { display: inline-block; padding: 25px 40px; color: white; border: solid 1px black; text-transform: uppercase; font-weight: bold; letter-spacing: 1px; }
+.ignite-btn2 { display: inline-block; padding: 25px 40px; color: red; border: solid 1px black; text-transform: uppercase; font-weight: bold; letter-spacing: 1px; }
+.ignite-btn3 { display: inline-block; padding: 25px 40px; color: black; border: solid 1px black; text-transform: uppercase; font-weight: bold; letter-spacing: 1px; }
+
 .ignite-btn:hover, .ignite-btn:focus { color: #3dc9b3; border: solid 1px #3dc9b3; }
 /* ==========================================================================
 Team
