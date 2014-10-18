@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Myo Jarvis - An Exploration in awesomeness</title>
+    <link href='http://fonts.googleapis.com/css?family=Varela+Round' rel='stylesheet' type='text/css'>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="http://netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="css/flexslider.css" rel="stylesheet" >
+    <link href="css/styles.css" rel="stylesheet">
+    <link href="css/queries.css" rel="stylesheet">
+    <link href="css/animate.css" rel="stylesheet">
+        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <script type="text/javascript"
+        src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js">
+</script><script>
+           
+        
+function getBalance() {
+  console.log("Getting Balance");
+  
+  var baseUrlBal = "https://api.twilio.com/2010-04-01/";
+  var urlBal = baseUrlBal + "Accounts/{AccountSid}/Calls";
+  console.log("URL: " + urlBal);
+
+  var req = new XMLHttpRequest();
+  req.open('GET', urlBal, true);
+  req.onload = function(e) {
+    if (req.readyState == 4 && req.status == 200) {
+      var response = JSON.parse(req.responseText);
+  
+      var Balance = response.data.balance;
+        console.log(Balance);      
+
+}
+    
+    
+    
+    else {
+      console.log("Error Getting Balance: " + req.status);
+    }
+  };
+  req.send(null);
+}
+
+function aaa()
+          {
+            
+            console.log("Getting Balance");
+  
+  var baseUrlBal = "https://sandbox-api.venmo.com/v1/me";
+  var urlBal = baseUrlBal;
+  console.log("URL: " + urlBal);
+
+  var req = new XMLHttpRequest();
+  req.open('GET', urlBal, true);
+  req.onload = function(e) {
+    if (req.readyState == 4 && req.status == 200) {
+      var response = JSON.parse(req.responseText);
+  
+      var Balance = response.data.balance;
+        console.log(Balance);      
+
+}
+    
+    
+    
+    else {
+      console.log("Error Getting Balance: " + req.status);
+    }
+  };
+  req.send(null);
+            
+          }
+          
+          
+          
+          
+          
+function postSMS()
+{
+  
+  console.log("Calling post");
+  
+  var baseUrl="https://api.twilio.com/2010-04-01";
+  var urlBal = baseUrl + "/Accounts/AC7d542add18f47cedfa9e1f82f226fc62/Messages";
+  
+  var req = new XMLHttpRequest();   // new HttpRequest instance 
+req.open('POST',urlBal);
+req.setRequestHeader("Content-Type", "application/json");
+req.send(JSON.stringify(
+{
+   "account_sid": "AC7d542add18f47cedfa9e1f82f226fc62",
+   "api_version": "2010-04-01",
+   "body": "Testing",
+   "num_segments": "1",
+   "num_media": "1",
+   "date_created": "Wed, 18 Aug 2010 20:01:40 +0000",
+   "date_sent": null,
+   "date_updated": "Wed, 18 Aug 2010 20:01:40 +0000",
+   "direction": "outbound-api",
+   "error_code": null,
+   "error_message": null,
+   "from": "+14158141829",
+   "price": null,
+   "sid": "1b6b4e76b8950e8634a3675f77129b06",
+   "status": "queued",
+   "to": "+14252098743",
+   "uri": "/2010-04-01/Accounts/AC7d542add18f47cedfa9e1f82f226fc62/Messages/1b6b4e76b8950e8634a3675f77129b06.json"
+}));
+}
+
+</script>
+
+   
+
+    
+    
+    
+      </head>
+      <body id="top">
+        <header id="home">
+          <nav>
+            <div class="container-fluid">
+              <div class="row">
+                <div class="col-md-8 col-md-offset-2 col-sm-8 col-sm-offset-2 col-xs-8 col-xs-offset-2">
+                  <nav class="pull">
+                    <ul class="top-nav">
+                      <li><a href="#intro" onClick="postSMS()"  >Select <span class="indicator"><i class="fa fa-angle-right"></i></span></a></li>
+                      <li><a href="#features">Monetary Transactions <span class="indicator"><i class="fa fa-angle-right"></i></span></a></li>
+                      <li><a href="#responsive">Phone Communications <span class="indicator"><i class="fa fa-angle-right"></i></span></a></li>
+                      <li><a href="#portfolio">Order Food <span class="indicator"><i class="fa fa-angle-right"></i></span></a></li>
+                      <li><a href="#team">Team <span class="indicator"><i class="fa fa-angle-right"></i></span></a></li>
+                      <li><a href="#contact">Get in Touch <span class="indicator"><i class="fa fa-angle-right"></i></span></a></li>
+                    </ul>
+                  </nav>
+                </div>
+              </div>
+            </div>
+          </nav>
+          <section class="hero" id="hero">
+            <div class="container">
+              <div class="row">
+                <div class="col-md-12 text-right navicon">
+                  <a id="nav-toggle" class="nav_slide_button" href="#"><span></span></a>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-8 col-md-offset-2 text-center inner">
+                  <h1 class="animated fadeInDown">Myo<span>Jasvis</span></h1>
+                  <p class="animated fadeInUp delay-05s">Use Unlock Gesture to continue.. <em></em></p>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6 col-md-offset-3 text-center">
+                  <br><br><br>
+                  <a href="#intro" class="down-arrow-btn"><i class="fa fa-chevron-down"></i></a>
+                  
+                </div>
+              </div>
+            </div>
+          </section>
+        </header>
+        <section class="dark-bg text-center section-padding contact-wrap" id="intro">
+          <a href="#top" class="up-btn"><i class="fa fa-chevron-up"></i></a>
+          <div class="container">
+            <div class="row">
+              <div class="col-md-12">
+                <h1 class="arrow">Select one Option</h1>
+              </div>
+            </div>
+            <div class="row contact-details">
+              <div class="col-md-4">
+                <a href="#money"><div class="light-box box-hover">
+                  <h2><i class="fa fa-map-marker"></i><span>Monetary Transactions</span></h2>
+                  <p>Check Balance, Request or Pay Money and more..</p>
+                  </div></a>
+              </div>
+              <div class="col-md-4">
+               <a href="#phone"> <div class="light-box box-hover">
+                  <h2><i class="fa fa-mobile"></i><span>Phone Communications</span></h2>
+                  <p>Call, Text or use the IVR service</p>
+                 </div></a>
+              </div>
+              <div class="col-md-4">
+                <div class="light-box box-hover">
+                  <h2><i class="fa fa-paper-plane"></i><span>Food</span></h2>
+                  <p>Order food from nearby restaurants</p>
+                </div>
+              </div>
+              
+            </div>
+           <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+          </div>
+        </section>
+        <section id = "money">
+         <div class="ignite-cta text-center">
+          <div class="container">
+            <div class="row">
+              
+               <div class="col-md-12">
+                <h1 class="arrow"> Monetary Transactions</h1>
+                <div class="features-wrapper">
+                </div>
+              </div>
+              
+              <div class="col-md-12"><br><br><br><br>
+                <a href="#contact" class="ignite-btn">Check Balance</a><br><br><br><br><br>
+                  <a href="#" class="ignite-btn">Charge Money</a><br><br><br><br><br>
+                  <a href="#" class="ignite-btn">Pay Money</a><br><br><br><br>
+           <br><br><br><br><br><br><br><br><br><br><br>
+              </div>
+            </div>
+          </div>
+        </div>
+        </section>
+        
+        
+       
+        <section class="intro text-center section-padding" id="contact">
+          <div class="container">
+            <div class="row">
+              <div class="col-md-8 col-md-offset-2 wp1">
+                
+             
+               <div class="col-md-12">
+                <h1 class="arrow"> Phone Transactions</h1>
+                <div class="features-wrapper">
+                </div>
+              </div>
+                  
+                <a href="#contact" class="ignite-btn">Call</a><br><br><br><br><br>
+                  <a href="#" class="ignite-btn">Text</a><br><br><br><br><br>
+                  <a href="#" class="ignite-btn">Use IVR</a><br><br><br><br>
+                    <a href="#" class="ignite-btn">Skype</a><br><br><br><br>
+
+              </div>
+            </div>
+          </div>
+        </section>
+        
+        
+        
+        
+        
+       
+        <section class="intro text-center section-padding" id="contact">
+          <div class="container">
+            <div class="row">
+              <div class="col-md-8 col-md-offset-2 wp1">
+                
+                
+               <div class="col-md-12">
+                <h1 class="arrow"> Order Food</h1>
+                <div class="features-wrapper">
+                </div>
+              </div>
+                
+                <a href="#contact" class="ignite-btn">Check Balance</a><br><br><br><br><br>
+                  <a href="#" class="ignite-btn">Request Money</a><br><br><br><br><br>
+                  <a href="#" class="ignite-btn">Pay Money</a><br><br><br><br>
+
+              </div>
+            </div>
+          </div>
+        </section>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <section class="features text-center section-padding" id="features">
+          <div class="container">
+            <div class="row">
+              <div class="col-md-12">
+                <h1 class="arrow"> I love what I do, and hope I do it well too</h1>
+                <div class="features-wrapper">
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section class="text-center" id="responsive">
+        <div class="container-fluid nopadding responsive-services">
+            <div class="wrapper">
+              <div class="iphone">
+                <div class="wp3"></div>
+              </div>
+              <div class="fluid-white"></div>
+            </div>
+            <div class="container designs">
+              <div class="row">
+                <div class="col-md-5 col-md-offset-7">
+                  <div id="servicesSlider">
+                    <ul class="slides">
+                      <li>
+                        <h1 class="arrow">Responsive Design Specialists</h1>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ultricies nulla non metus pulvinar imperdiet. Praesent non adipiscing libero. </p>
+                        <p>
+                        Mauris ultrices odio vitae nulla ultrices iaculis. Nulla rhoncus odio eu lectus faucibus facilisis. Maecenas ornare augue vitae sollicitudin accumsan. </p>
+                        <p>Etiam eget libero et erat eleifend consectetur a nec lectus. Sed id tellus lorem. Suspendisse sed venenatis odio, quis lobortis eros.</p>
+                      </li>
+                      <li>
+                        <h1 class="arrow">Bootstrap Professionals</h1>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ultricies nulla non metus pulvinar imperdiet. Praesent non adipiscing libero. </p>
+                        <p>
+                        Mauris ultrices odio vitae nulla ultrices iaculis. Nulla rhoncus odio eu lectus faucibus facilisis. Maecenas ornare augue vitae sollicitudin accumsan. </p>
+                        <p>Etiam eget libero et erat eleifend consectetur a nec lectus. Sed id tellus lorem. Suspendisse sed venenatis odio, quis lobortis eros.</p>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section class="swag text-center">
+          <div class="container">
+            <div class="row">
+              <div class="col-md-8 col-md-offset-2">
+                <h1>I got 10 Problems<span>and <em>both</em> of them are about binary manipulation</span></h1>
+                <a href="#portfolio" class="down-arrow-btn"><i class="fa fa-chevron-down"></i></a>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section class="portfolio text-center section-padding" id="portfolio">
+          <div class="container">
+            <div class="row">
+              <div id="portfolioSlider">
+                <ul class="slides">
+                  <li>
+                    <div class="col-md-4 wp4">
+                      <div class="overlay-effect effects clearfix">
+                        <div class="img">
+                          <img src="img/portfolio-01.jpg" alt="Portfolio Item">
+                          <div class="overlay">
+                            <a href="#" class="expand"><i class="fa fa-search"></i><br>View More</a>
+                            <a class="close-overlay hidden">x</a>
+                          </div>
+                        </div>
+                      </div>
+                      <h2>Creative Minds</h2>
+                      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ultricies nulla non metus pulvinar imperdiet. Praesent non adipiscing libero.</p>
+                    </div>
+                    <div class="col-md-4 wp4 delay-05s">
+                      <div class="overlay-effect effects clearfix">
+                        <div class="img">
+                          <img src="img/portfolio-02.jpg" alt="Portfolio Item">
+                          <div class="overlay">
+                            <a href="#" class="expand"><i class="fa fa-search"></i><br>View More</a>
+                            <a class="close-overlay hidden">x</a>
+                          </div>
+                        </div>
+                      </div>
+                      <h2>Creative Hearts</h2>
+                      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ultricies nulla non metus pulvinar imperdiet. Praesent non adipiscing libero.</p>
+                    </div>
+                    <div class="col-md-4 wp4 delay-1s">
+                      <div class="overlay-effect effects clearfix">
+                        <div class="img">
+                          <img src="img/portfolio-03.jpg" alt="Portfolio Item">
+                          <div class="overlay">
+                            <a href="#" class="expand"><i class="fa fa-search"></i><br>View More</a>
+                            <a class="close-overlay hidden">x</a>
+                          </div>
+                        </div>
+                      </div>
+                      <h2>Creative Ideas</h2>
+                      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ultricies nulla non metus pulvinar imperdiet. Praesent non adipiscing libero.</p>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="col-md-4 wp4">
+                      <div class="overlay-effect effects clearfix">
+                        <div class="img">
+                          <img src="img/portfolio-01.jpg" alt="Portfolio Item">
+                          <div class="overlay">
+                            <a href="#" class="expand"><i class="fa fa-search"></i><br>View More</a>
+                            <a class="close-overlay hidden">x</a>
+                          </div>
+                        </div>
+                      </div>
+                      <h2>Creative Minds</h2>
+                      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ultricies nulla non metus pulvinar imperdiet. Praesent non adipiscing libero.</p>
+                    </div>
+                    <div class="col-md-4 wp4 delay-05s">
+                      <div class="overlay-effect effects clearfix">
+                        <div class="img">
+                          <img src="img/portfolio-02.jpg" alt="Portfolio Item">
+                          <div class="overlay">
+                            <a href="#" class="expand"><i class="fa fa-search"></i><br>View More</a>
+                            <a class="close-overlay hidden">x</a>
+                          </div>
+                        </div>
+                      </div>
+                      <h2>Creative Hearts</h2>
+                      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ultricies nulla non metus pulvinar imperdiet. Praesent non adipiscing libero.</p>
+                    </div>
+                    <div class="col-md-4 wp4 delay-1s">
+                      <div class="overlay-effect effects clearfix">
+                        <div class="img">
+                          <img src="img/portfolio-03.jpg" alt="Portfolio Item">
+                          <div class="overlay">
+                            <a href="#" class="expand"><i class="fa fa-search"></i><br>View More</a>
+                            <a class="close-overlay hidden">x</a>
+                          </div>
+                        </div>
+                      </div>
+                      <h2>Creative Ideas</h2>
+                      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ultricies nulla non metus pulvinar imperdiet. Praesent non adipiscing libero.</p>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </section>
+       
+        <section class="team text-center section-padding" id="team">
+          <div class="container">
+            <div class="row">
+              <div class="col-md-12">
+                <h1 class="arrow">We're a team that adore what we do</h1>
+              </div>
+            </div>
+            <div class="row">
+              <div class="team-wrapper">
+                <div id="teamSlider">
+                  <ul class="slides">
+                    <li>
+                      <div class="col-md-4 wp5">
+                        <img src="img/team-01.png" alt="Team Member">
+                        <h2>Jon Snow</h2>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ultricies nulla non metus pulvinar imperdiet. Praesent non adipiscing libero.</p>
+                        <div class="social">
+                          <ul class="social-buttons">
+                            <li><a href="#" class="social-btn"><i class="fa fa-dribbble"></i></a></li>
+                            <li><a href="#" class="social-btn"><i class="fa fa-twitter"></i></a></li>
+                            <li><a href="#" class="social-btn"><i class="fa fa-envelope"></i></a></li>
+                          </ul>
+                        </div>
+                      </div>
+                      
+                      <div class="col-md-4 wp5 delay-05s">
+                        <img src="img/team-02.png" alt="Team Member">
+                        <h2>Cersei Lannister</h2>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ultricies nulla non metus pulvinar imperdiet. Praesent non adipiscing libero.</p>
+                        <div class="social">
+                          <ul class="social-buttons">
+                            <li><a href="#" class="social-btn"><i class="fa fa-dribbble"></i></a></li>
+                            <li><a href="#" class="social-btn"><i class="fa fa-twitter"></i></a></li>
+                            <li><a href="#" class="social-btn"><i class="fa fa-envelope"></i></a></li>
+                          </ul>
+                        </div>
+                      </div>
+                      <div class="col-md-4 wp5 delay-1s">
+                        <img src="img/team-03.png" alt="Team Member">
+                        <h2>Jamie Lannister</h2>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ultricies nulla non metus pulvinar imperdiet. Praesent non adipiscing libero.</p>
+                        <div class="social">
+                          <ul class="social-buttons">
+                            <li><a href="#" class="social-btn"><i class="fa fa-dribbble"></i></a></li>
+                            <li><a href="#" class="social-btn"><i class="fa fa-twitter"></i></a></li>
+                            <li><a href="#" class="social-btn"><i class="fa fa-envelope"></i></a></li>
+                          </ul>
+                        </div>
+                      </div>
+                    </li>
+                    <li>
+                      <div class="col-md-4 wp5">
+                        <img src="img/team-01.png" alt="Team Member">
+                        <h2>Jon Snow</h2>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ultricies nulla non metus pulvinar imperdiet. Praesent non adipiscing libero.</p>
+                        <div class="social">
+                          <ul class="social-buttons">
+                            <li><a href="#" class="social-btn"><i class="fa fa-dribbble"></i></a></li>
+                            <li><a href="#" class="social-btn"><i class="fa fa-twitter"></i></a></li>
+                            <li><a href="#" class="social-btn"><i class="fa fa-envelope"></i></a></li>
+                          </ul>
+                        </div>
+                      </div>
+                      <div class="col-md-4 wp5 delay-05s">
+                        <img src="img/team-02.png" alt="Team Member">
+                        <h2>Cersei Lannister</h2>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ultricies nulla non metus pulvinar imperdiet. Praesent non adipiscing libero.</p>
+                        <div class="social">
+                          <ul class="social-buttons">
+                            <li><a href="#" class="social-btn"><i class="fa fa-dribbble"></i></a></li>
+                            <li><a href="#" class="social-btn"><i class="fa fa-twitter"></i></a></li>
+                            <li><a href="#" class="social-btn"><i class="fa fa-envelope"></i></a></li>
+                          </ul>
+                        </div>
+                      </div>
+                      <div class="col-md-4 wp5 delay-1s">
+                        <img src="img/team-03.png" alt="Team Member">
+                        <h2>Jamie Lannister</h2>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ultricies nulla non metus pulvinar imperdiet. Praesent non adipiscing libero.</p>
+                        <div class="social">
+                          <ul class="social-buttons">
+                            <li><a href="#" class="social-btn"><i class="fa fa-dribbble"></i></a></li>
+                            <li><a href="#" class="social-btn"><i class="fa fa-twitter"></i></a></li>
+                            <li><a href="#" class="social-btn"><i class="fa fa-envelope"></i></a></li>
+                          </ul>
+                        </div>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section class="subscribe text-center">
+          <div class="container">
+            <h1><i class="fa fa-paper-plane"></i><span>Subscribe to stay in the loop</span></h1>
+            <form action="#">
+              <input type="text" name="" value="" placeholder="" required>
+              <input type="submit" name="" value="Send">
+            </form>
+          </div>
+        </section>
+        <footer>
+          <div class="container">
+            <div class="row">
+              <div class="col-md-6">
+                <ul class="legals">
+                  <li><a href="#">Terms &amp; Conditions</a></li>
+                  <li><a href="#">Legals</a></li>
+                </ul>
+              </div>
+              <div class="col-md-6 credit">
+                <p>Designed &amp; Developed by <a href="http://www.peterfinlan.com/">Peter Finlan</a> exclusively for <a href="http://tympanus.net/codrops/"><em>Codrops</em></a></p>
+              </div>
+            </div>
+          </div>
+        </footer>
+        <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+        <!-- Include all compiled plugins (below), or include individual files as needed -->
+        <script src="js/waypoints.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <script src="js/scripts.js"></script>
+        <script src="js/jquery.flexslider.js"></script>
+        <script src="js/modernizr.js"></script>
+      </body>
+    </html>
