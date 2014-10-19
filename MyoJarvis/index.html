@@ -84,7 +84,7 @@
                 <a href="#money"><div class="light-box box-hover">
                   <h2><i class="fa fa-map-marker"></i><span>Monetary Transactions</span></h2>
                   <p>Check Balance and Pay</p>
-                  </div></a>
+                  </div></a><br><br><br><br><br><br>
               </div>
               <div class="col-md-4">
                <a href="#phone"> <div class="light-box box-hover">
@@ -92,7 +92,6 @@
                   <p>Call or Text</p>
                  </div></a>
               </div>
-              
             </div>
 
           </div>
@@ -110,16 +109,9 @@
               </div>
               
               <div class="col-md-12"><br><br><br><br>
-<<<<<<< HEAD
                 <a href="index.html#money" class="ignite-btn">Check Balance</a><br><br><br>
                   <a href="index.html#money" class="ignite-btn">Pay Money</a><br><br><br><br>
            <br><br><br><br><br><br><br>
-=======
-                <a href="#contact" class="ignite-btn">Check Balance</a><br><br><br><br><br>
-                  <a href="#" class="ignite-btn">Request Money</a><br><br><br><br><br>
-                  <a href="#" class="ignite-btn">Pay Money</a><br><br><br><br>
-           <br><br><br><br>
->>>>>>> bbf7d73beb7c339bb43a99466efac56406e213f7
               </div>
             </div>
           </div>
@@ -283,11 +275,7 @@
         <script>
 
        var myo = Myo.create(0);
-<<<<<<< HEAD
        var currLoc = 0;
-
-=======
->>>>>>> bbf7d73beb7c339bb43a99466efac56406e213f7
 
        myo.on('arm_recognized', function(){
        console.log('good!', this.id);
@@ -297,7 +285,6 @@
        console.log('bad', this.id);
        })
 
-<<<<<<< HEAD
       
 
 
@@ -365,7 +352,6 @@
 
 
 
-=======
        myo.on('wave_left', function(){
        waved = true;
        console.log('wave Left!');
@@ -376,13 +362,11 @@
        console.log('Fist!');
        location.href = "/Users/pranavoct18/Boilermake/MyoJarvis/index.html#food"
       })
->>>>>>> bbf7d73beb7c339bb43a99466efac56406e213f7
 
        myo.on('connected', function(){
        setInterval(function(){
        myo.requestBluetoothStrength();
        }, 100);
-<<<<<<< HEAD
        });
 
        // myo.on('bluetooth_strength', function(BTS){
@@ -390,7 +374,6 @@
        // $('#log').width(width);
        // // console.log(width);
        // });
-=======
        })
 
        myo.on('bluetooth_strength', function(BTS){
@@ -398,7 +381,6 @@
        $('#log').width(width);
        // console.log(width);
        })
->>>>>>> bbf7d73beb7c339bb43a99466efac56406e213f7
 
 
   </script>
