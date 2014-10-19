@@ -8,4 +8,4 @@ client = TwilioRestClient(account_sid, auth_token)
 message = client.messages.create(body="Jenny please?! I love you <3",
     to="+14252098743",    # Replace with your phone number
     from_="+17159524016") # Replace with your Twilio number
-print message.sid
+print ("SMS Sent")

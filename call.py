@@ -8,4 +8,4 @@ client = TwilioRestClient(account_sid, auth_token)
 call = client.calls.create(url="http://demo.twilio.com/docs/voice.xml",
     to="+14252098743",
     from_="+17159524016")
-print call.sid
+print ("Calling")
