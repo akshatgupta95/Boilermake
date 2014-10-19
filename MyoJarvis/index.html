@@ -110,9 +110,16 @@
               </div>
               
               <div class="col-md-12"><br><br><br><br>
+<<<<<<< HEAD
                 <a href="index.html#money" class="ignite-btn">Check Balance</a><br><br><br>
                   <a href="index.html#money" class="ignite-btn">Pay Money</a><br><br><br><br>
            <br><br><br><br><br><br><br>
+=======
+                <a href="#contact" class="ignite-btn">Check Balance</a><br><br><br><br><br>
+                  <a href="#" class="ignite-btn">Request Money</a><br><br><br><br><br>
+                  <a href="#" class="ignite-btn">Pay Money</a><br><br><br><br>
+           <br><br><br><br>
+>>>>>>> bbf7d73beb7c339bb43a99466efac56406e213f7
               </div>
             </div>
           </div>
@@ -276,8 +283,11 @@
         <script>
 
        var myo = Myo.create(0);
+<<<<<<< HEAD
        var currLoc = 0;
 
+=======
+>>>>>>> bbf7d73beb7c339bb43a99466efac56406e213f7
 
        myo.on('arm_recognized', function(){
        console.log('good!', this.id);
@@ -287,6 +297,7 @@
        console.log('bad', this.id);
        })
 
+<<<<<<< HEAD
       
 
 
@@ -354,11 +365,24 @@
 
 
 
+=======
+       myo.on('wave_left', function(){
+       waved = true;
+       console.log('wave Left!');
+       location.href = "/Users/pranavoct18/Boilermake/MyoJarvis/index.html#team"
+       })
+       
+       myo.on('fist', function(){
+       console.log('Fist!');
+       location.href = "/Users/pranavoct18/Boilermake/MyoJarvis/index.html#food"
+      })
+>>>>>>> bbf7d73beb7c339bb43a99466efac56406e213f7
 
        myo.on('connected', function(){
        setInterval(function(){
        myo.requestBluetoothStrength();
        }, 100);
+<<<<<<< HEAD
        });
 
        // myo.on('bluetooth_strength', function(BTS){
@@ -366,6 +390,15 @@
        // $('#log').width(width);
        // // console.log(width);
        // });
+=======
+       })
+
+       myo.on('bluetooth_strength', function(BTS){
+       var width = ((BTS * -1 - 40 ) / 50 ) * 100  + '%';
+       $('#log').width(width);
+       // console.log(width);
+       })
+>>>>>>> bbf7d73beb7c339bb43a99466efac56406e213f7
 
 
   </script>
