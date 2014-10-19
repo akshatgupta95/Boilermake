@@ -17,109 +17,12 @@
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
         <script type="text/javascript"
-        src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js">
-</script><script>
-           
-        
-function getBalance() {
-  console.log("Getting Balance");
-  
-  var baseUrlBal = "https://api.twilio.com/2010-04-01/";
-  var urlBal = baseUrlBal + "Accounts/{AccountSid}/Calls";
-  console.log("URL: " + urlBal);
-
-  var req = new XMLHttpRequest();
-  req.open('GET', urlBal, true);
-  req.onload = function(e) {
-    if (req.readyState == 4 && req.status == 200) {
-      var response = JSON.parse(req.responseText);
-  
-      var Balance = response.data.balance;
-        console.log(Balance);      
-
-}
-    
-    
-    
-    else {
-      console.log("Error Getting Balance: " + req.status);
-    }
-  };
-  req.send(null);
-}
-
-function aaa()
-          {
-            
-            console.log("Getting Balance");
-  
-  var baseUrlBal = "https://sandbox-api.venmo.com/v1/me";
-  var urlBal = baseUrlBal;
-  console.log("URL: " + urlBal);
-
-  var req = new XMLHttpRequest();
-  req.open('GET', urlBal, true);
-  req.onload = function(e) {
-    if (req.readyState == 4 && req.status == 200) {
-      var response = JSON.parse(req.responseText);
-  
-      var Balance = response.data.balance;
-        console.log(Balance);      
-
-}
-    
-    
-    
-    else {
-      console.log("Error Getting Balance: " + req.status);
-    }
-  };
-  req.send(null);
-            
-          }
-          
-          
-          
-          
-          
-function postSMS()
-{
-  
-  console.log("Calling post");
-  
-  var baseUrl="https://api.twilio.com/2010-04-01";
-  var urlBal = baseUrl + "/Accounts/AC7d542add18f47cedfa9e1f82f226fc62/Messages";
-  
-  var req = new XMLHttpRequest();   // new HttpRequest instance 
-req.open('POST',urlBal);
-req.setRequestHeader("Content-Type", "application/json");
-req.send(JSON.stringify(
-{
-   "account_sid": "AC7d542add18f47cedfa9e1f82f226fc62",
-   "api_version": "2010-04-01",
-   "body": "Testing",
-   "num_segments": "1",
-   "num_media": "1",
-   "date_created": "Wed, 18 Aug 2010 20:01:40 +0000",
-   "date_sent": null,
-   "date_updated": "Wed, 18 Aug 2010 20:01:40 +0000",
-   "direction": "outbound-api",
-   "error_code": null,
-   "error_message": null,
-   "from": "+14158141829",
-   "price": null,
-   "sid": "1b6b4e76b8950e8634a3675f77129b06",
-   "status": "queued",
-   "to": "+14252098743",
-   "uri": "/2010-04-01/Accounts/AC7d542add18f47cedfa9e1f82f226fc62/Messages/1b6b4e76b8950e8634a3675f77129b06.json"
-}));
-}
-
+        src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+            <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js'></script>
+    <script src='http://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.6.0/underscore-min.js'></script>
+    <script src='./myo.js'></script>
+    <script src='./experimental/myo.experimental.js'></script>
 </script>
-
-   
-
-    
     
     
       </head>
@@ -131,9 +34,12 @@ req.send(JSON.stringify(
                 <div class="col-md-8 col-md-offset-2 col-sm-8 col-sm-offset-2 col-xs-8 col-xs-offset-2">
                   <nav class="pull">
                     <ul class="top-nav">
+
+    
+
                       <li><a href="#money">Monetary Transactions <span class="indicator"><i class="fa fa-angle-right"></i></span></a></li>
                       <li><a href="#phone">Phone Communications <span class="indicator"><i class="fa fa-angle-right"></i></span></a></li>
-                      <li><a href="#food">Order Food <span class="indicator"><i class="fa fa-angle-right"></i></span></a></li>
+                      <!-- <li><a href="#food">Order Food <span class="indicator"><i class="fa fa-angle-right"></i></span></a></li> -->
                       <li><a href="#team">Team <span class="indicator"><i class="fa fa-angle-right"></i></span></a></li>
 
                     </ul>
@@ -177,25 +83,18 @@ req.send(JSON.stringify(
               <div class="col-md-4">
                 <a href="#money"><div class="light-box box-hover">
                   <h2><i class="fa fa-map-marker"></i><span>Monetary Transactions</span></h2>
-                  <p>Check Balance, Request or Pay Money and more..</p>
+                  <p>Check Balance and Pay</p>
                   </div></a>
               </div>
               <div class="col-md-4">
                <a href="#phone"> <div class="light-box box-hover">
                   <h2><i class="fa fa-mobile"></i><span>Phone Communications</span></h2>
-                  <p>Call, Text or use the IVR service</p>
+                  <p>Call or Text</p>
                  </div></a>
-              </div>
-              <div class="col-md-4">
-                <a href="#food">
-                <div class="light-box box-hover">
-                  <h2><i class="fa fa-paper-plane"></i><span>Food</span></h2>
-                  <p>Order food from nearby restaurants</p>
-                </div>
               </div>
               
             </div>
-           <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
           </div>
         </section>
         
@@ -211,10 +110,9 @@ req.send(JSON.stringify(
               </div>
               
               <div class="col-md-12"><br><br><br><br>
-                <a href="#contact" class="ignite-btn">Check Balance</a><br><br><br><br><br>
-                  <a href="#" class="ignite-btn">Request Money</a><br><br><br><br><br>
-                  <a href="#" class="ignite-btn">Pay Money</a><br><br><br><br>
-           <br><br><br><br><br><br><br><br>
+                <a href="index.html#money" class="ignite-btn">Check Balance</a><br><br><br>
+                  <a href="index.html#money" class="ignite-btn">Pay Money</a><br><br><br><br>
+           <br><br><br><br><br><br><br>
               </div>
             </div>
           </div>
@@ -228,7 +126,7 @@ req.send(JSON.stringify(
               <div class="col-md-8 col-md-offset-2 wp1">
                 
              
-               <div class="col-md-12">
+               <div class="col-md-99">
                 <h1 class="arrow"> Phone Communications</h1>
                 <div class="features-wrapper">
                 </div>
@@ -236,8 +134,7 @@ req.send(JSON.stringify(
                   
                 <a href="#call" class="ignite-btn2">Call</a><br><br><br><br><br>
                   <a href="#text" class="ignite-btn2">Text</a><br><br><br><br><br>
-                  <a href="#" class="ignite-btn2">Use IVR</a><br><br><br><br>
-              <br><br>
+              <br><br><br><br><br><br>
               </div>
             </div>
           </div>
@@ -255,9 +152,8 @@ req.send(JSON.stringify(
                 </div>
               </div>
                   
-                <a href="#call" class="ignite-btn2">Akshat</a><br><br><br><br><br>
                   <a href="#" class="ignite-btn2">Dhruv</a><br><br><br><br><br>
-                  <a href="#" class="ignite-btn2">Pranav</a><br><br><br><br>
+                  <a href="#" class="ignite-btn2">Pranav</a><br><br><br><br><br><br><br><br><br>
               <br><br>
               </div>
             </div>
@@ -277,9 +173,8 @@ req.send(JSON.stringify(
                 </div>
               </div>
                   
-                <a href="#text" class="ignite-btn3">Akshat</a><br><br><br><br><br>
                   <a href="#" class="ignite-btn3">Dhruv</a><br><br><br><br><br>
-                  <a href="#" class="ignite-btn3">Pranav</a><br><br><br><br>
+                  <a href="#" class="ignite-btn3">Pranav</a><br><br><br><br><br><br><br><br><br>
               <br><br>
               </div>
             </div>
@@ -291,7 +186,7 @@ req.send(JSON.stringify(
         
         
        
-        <section id="food">
+        <!-- <section id="food">
           <div class="ignite-cta3 text-center">
             <div class="row">
               <div class="col-md-8 col-md-offset-2 wp1">
@@ -310,7 +205,7 @@ req.send(JSON.stringify(
               </div>
             </div>
           </div>
-        </section>
+        </section> -->
     
         
  
@@ -339,7 +234,7 @@ req.send(JSON.stringify(
                         </div>
                       </div>
                       
-                      <div class="col-md-4 wp5 delay-05s">
+                      <div class="col-md-4 wp5 delay-01s">
                         <img src="img/A.jpg" class="img-circle">
                         <h2>Akshat Gupta</h2>
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ultricies nulla non metus pulvinar imperdiet. Praesent non adipiscing libero.</p>
@@ -351,7 +246,7 @@ req.send(JSON.stringify(
                           </ul>
                         </div>
                       </div>
-                      <div class="col-md-4 wp5 delay-1s">
+                      <div class="col-md-4 wp5 delay-01s">
                         <img src="img/P.jpg" class="img-circle">
                         <h2>Pranav Aditya</h2>
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ultricies nulla non metus pulvinar imperdiet. Praesent non adipiscing libero.</p>
@@ -364,44 +259,6 @@ req.send(JSON.stringify(
                         </div>
                       </div>
                     </li>
-                    <!-- <li>
-                      <div class="col-md-4 wp5">
-                        <img src="img/team-01.png" alt="Team Member">
-                        <h2>Jon Snow</h2>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ultricies nulla non metus pulvinar imperdiet. Praesent non adipiscing libero.</p>
-                        <div class="social">
-                          <ul class="social-buttons">
-                            <li><a href="#" class="social-btn"><i class="fa fa-dribbble"></i></a></li>
-                            <li><a href="#" class="social-btn"><i class="fa fa-twitter"></i></a></li>
-                            <li><a href="#" class="social-btn"><i class="fa fa-envelope"></i></a></li>
-                          </ul>
-                        </div>
-                      </div>
-                      <div class="col-md-4 wp5 delay-05s">
-                        <img src="img/team-02.png" alt="Team Member">
-                        <h2>Cersei Lannister</h2>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ultricies nulla non metus pulvinar imperdiet. Praesent non adipiscing libero.</p>
-                        <div class="social">
-                          <ul class="social-buttons">
-                            <li><a href="#" class="social-btn"><i class="fa fa-dribbble"></i></a></li>
-                            <li><a href="#" class="social-btn"><i class="fa fa-twitter"></i></a></li>
-                            <li><a href="#" class="social-btn"><i class="fa fa-envelope"></i></a></li>
-                          </ul>
-                        </div>
-                      </div>
-                      <div class="col-md-4 wp5 delay-1s">
-                        <img src="img/team-03.png" alt="Team Member">
-                        <h2>Jamie Lannister</h2>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ultricies nulla non metus pulvinar imperdiet. Praesent non adipiscing libero.</p>
-                        <div class="social">
-                          <ul class="social-buttons">
-                            <li><a href="#" class="social-btn"><i class="fa fa-dribbble"></i></a></li>
-                            <li><a href="#" class="social-btn"><i class="fa fa-twitter"></i></a></li>
-                            <li><a href="#" class="social-btn"><i class="fa fa-envelope"></i></a></li>
-                          </ul>
-                        </div>
-                      </div>
-                    </li> -->
                   </ul>
                 </div>
               </div>
@@ -416,5 +273,101 @@ req.send(JSON.stringify(
         <script src="js/scripts.js"></script>
         <script src="js/jquery.flexslider.js"></script>
         <script src="js/modernizr.js"></script>
-      </body>
-    </html>
+        <script>
+
+       var myo = Myo.create(0);
+       var currLoc = 0;
+
+
+       myo.on('arm_recognized', function(){
+       console.log('good!', this.id);
+       // location.href = "MyoJarvis/index.html"
+       })
+       myo.on('arm_lost', function(){
+       console.log('bad', this.id);
+       })
+
+      
+
+
+
+       myo.on('wave_right', function(){               // RIGHT
+       console.log('wave Right!');
+       switch(currLoc)
+       {
+        case 1:
+          location.href = "index/html#phone";
+
+
+
+
+       }
+       }
+       });
+
+      
+
+
+
+       myo.on('wave_left', function(){                // LEFT
+       var currLoc = location.href.toLowerCase();
+       switch(currLoc)
+       {
+        case 1:
+          location.href = "intro.html#money";
+          currLoc = 2;
+          break;
+        default:
+          location.href = location.href;
+
+
+
+       }
+       });
+       
+      
+
+
+
+
+       myo.on('fist', function(){                     // FIST
+       console.log('Fist!');
+       switch(currLoc)
+       {
+        case 0:
+          location.href = "index.html#intro";
+          currLoc = 1;
+          break;
+        default:
+          location.href = location.href;
+
+
+
+
+
+       }
+       });
+
+       
+
+
+
+
+
+
+       myo.on('connected', function(){
+       setInterval(function(){
+       myo.requestBluetoothStrength();
+       }, 100);
+       });
+
+       // myo.on('bluetooth_strength', function(BTS){
+       // var width = ((BTS * -1 - 40 ) / 50 ) * 100  + '%';
+       // $('#log').width(width);
+       // // console.log(width);
+       // });
+
+
+  </script>
+</body>
+</html>
