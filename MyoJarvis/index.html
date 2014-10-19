@@ -17,7 +17,11 @@
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
         <script type="text/javascript"
-        src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js">
+        src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+            <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js'></script>
+    <script src='http://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.6.0/underscore-min.js'></script>
+    <script src='./myo.js'></script>
+    <script src='./experimental/myo.experimental.js'></script>
 </script><script>
            
         
@@ -131,6 +135,9 @@ req.send(JSON.stringify(
                 <div class="col-md-8 col-md-offset-2 col-sm-8 col-sm-offset-2 col-xs-8 col-xs-offset-2">
                   <nav class="pull">
                     <ul class="top-nav">
+
+    
+
                       <li><a href="#money">Monetary Transactions <span class="indicator"><i class="fa fa-angle-right"></i></span></a></li>
                       <li><a href="#phone">Phone Communications <span class="indicator"><i class="fa fa-angle-right"></i></span></a></li>
                       <li><a href="#food">Order Food <span class="indicator"><i class="fa fa-angle-right"></i></span></a></li>
@@ -339,7 +346,7 @@ req.send(JSON.stringify(
                         </div>
                       </div>
                       
-                      <div class="col-md-4 wp5 delay-05s">
+                      <div class="col-md-4 wp5 delay-01s">
                         <img src="img/A.jpg" class="img-circle">
                         <h2>Akshat Gupta</h2>
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ultricies nulla non metus pulvinar imperdiet. Praesent non adipiscing libero.</p>
@@ -351,7 +358,7 @@ req.send(JSON.stringify(
                           </ul>
                         </div>
                       </div>
-                      <div class="col-md-4 wp5 delay-1s">
+                      <div class="col-md-4 wp5 delay-01s">
                         <img src="img/P.jpg" class="img-circle">
                         <h2>Pranav Aditya</h2>
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ultricies nulla non metus pulvinar imperdiet. Praesent non adipiscing libero.</p>
@@ -364,44 +371,6 @@ req.send(JSON.stringify(
                         </div>
                       </div>
                     </li>
-                    <!-- <li>
-                      <div class="col-md-4 wp5">
-                        <img src="img/team-01.png" alt="Team Member">
-                        <h2>Jon Snow</h2>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ultricies nulla non metus pulvinar imperdiet. Praesent non adipiscing libero.</p>
-                        <div class="social">
-                          <ul class="social-buttons">
-                            <li><a href="#" class="social-btn"><i class="fa fa-dribbble"></i></a></li>
-                            <li><a href="#" class="social-btn"><i class="fa fa-twitter"></i></a></li>
-                            <li><a href="#" class="social-btn"><i class="fa fa-envelope"></i></a></li>
-                          </ul>
-                        </div>
-                      </div>
-                      <div class="col-md-4 wp5 delay-05s">
-                        <img src="img/team-02.png" alt="Team Member">
-                        <h2>Cersei Lannister</h2>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ultricies nulla non metus pulvinar imperdiet. Praesent non adipiscing libero.</p>
-                        <div class="social">
-                          <ul class="social-buttons">
-                            <li><a href="#" class="social-btn"><i class="fa fa-dribbble"></i></a></li>
-                            <li><a href="#" class="social-btn"><i class="fa fa-twitter"></i></a></li>
-                            <li><a href="#" class="social-btn"><i class="fa fa-envelope"></i></a></li>
-                          </ul>
-                        </div>
-                      </div>
-                      <div class="col-md-4 wp5 delay-1s">
-                        <img src="img/team-03.png" alt="Team Member">
-                        <h2>Jamie Lannister</h2>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ultricies nulla non metus pulvinar imperdiet. Praesent non adipiscing libero.</p>
-                        <div class="social">
-                          <ul class="social-buttons">
-                            <li><a href="#" class="social-btn"><i class="fa fa-dribbble"></i></a></li>
-                            <li><a href="#" class="social-btn"><i class="fa fa-twitter"></i></a></li>
-                            <li><a href="#" class="social-btn"><i class="fa fa-envelope"></i></a></li>
-                          </ul>
-                        </div>
-                      </div>
-                    </li> -->
                   </ul>
                 </div>
               </div>
@@ -416,5 +385,42 @@ req.send(JSON.stringify(
         <script src="js/scripts.js"></script>
         <script src="js/jquery.flexslider.js"></script>
         <script src="js/modernizr.js"></script>
-      </body>
-    </html>
+        <script>
+
+       var myo = Myo.create(0);
+
+       myo.on('arm_recognized', function(){
+       console.log('good!', this.id);
+       // location.href = "MyoJarvis/index.html"
+       })
+       myo.on('arm_lost', function(){
+       console.log('bad', this.id);
+       })
+
+       myo.on('wave_left', function(){
+       waved = true;
+       console.log('wave Left!');
+       location.href = "/Users/pranavoct18/Boilermake/MyoJarvis/index.html#team"
+       })
+       
+       myo.on('fist', function(){
+       console.log('Fist!');
+       location.href = "/Users/pranavoct18/Boilermake/MyoJarvis/index.html#food"
+      })
+
+       myo.on('connected', function(){
+       setInterval(function(){
+       myo.requestBluetoothStrength();
+       }, 100);
+       })
+
+       myo.on('bluetooth_strength', function(BTS){
+       var width = ((BTS * -1 - 40 ) / 50 ) * 100  + '%';
+       $('#log').width(width);
+       // console.log(width);
+       })
+
+
+  </script>
+</body>
+</html>
